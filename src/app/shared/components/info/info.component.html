@@ -8,7 +8,7 @@
         'alert-success': info.title === 'Node.js',
         'alert-secondary': info.title === 'Django'
     }">
-        <p #para class="mb-0 d-inline-block">
+        <p #para class="mb-0 d-inline-block text-justify">
             {{ info.info | truncate }}
         </p>
         <a (click)="onShowHide($event, info)" href="javascript:;"> Show more</a>
