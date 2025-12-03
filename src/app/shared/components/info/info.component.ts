@@ -32,21 +32,17 @@ export class InfoComponent implements OnInit {
     }
   ];
 
-  flag: boolean = false;
-
   onShowHide(eve: Event, obj: Iframe) {
-    if(!this.flag){
+    if((eve.target as HTMLElement).innerHTML === ` Show more...`){
       ((eve.target as HTMLElement).previousSibling as HTMLElement).innerHTML = obj.info;
       (eve.target as HTMLElement).innerHTML = ` Show less...`;
-      this.flag = true;
     }else{
       ((eve.target as HTMLElement).previousSibling as HTMLElement).innerHTML = this._truncatePipe.transform(obj.info);
-      (eve.target as HTMLElement).innerHTML = ` Show more...`;
-      this.flag = false;   
+      (eve.target as HTMLElement).innerHTML = ` Show more...`;   
     }
   }
 
-  constructor( private _truncatePipe: TruncatePipe) { }
+  constructor(private _truncatePipe: TruncatePipe) { }
 
   ngOnInit(): void {
   }
