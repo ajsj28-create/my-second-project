@@ -33,12 +33,12 @@ export class InfoComponent implements OnInit {
   ];
 
   onShowHide(eve: Event, obj: Iframe) {
-    if((eve.target as HTMLElement).innerHTML === ` Show more...`){
+    if((eve.target as HTMLElement).innerHTML === ` Show more`){
       ((eve.target as HTMLElement).previousSibling as HTMLElement).innerHTML = obj.info;
-      (eve.target as HTMLElement).innerHTML = ` Show less...`;
+      (eve.target as HTMLElement).innerHTML = ` Show less`;
     }else{
       ((eve.target as HTMLElement).previousSibling as HTMLElement).innerHTML = this._truncatePipe.transform(obj.info);
-      (eve.target as HTMLElement).innerHTML = ` Show more...`;   
+      (eve.target as HTMLElement).innerHTML = ` Show more`;   
     }
   }
 
