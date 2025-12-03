@@ -1,0 +1,16 @@
+<div class="card mb-2"
+*ngFor="let info of frameworksInfo">
+    <div class="card-body"
+    [ngClass]="{
+        'alert-info': info.title === 'React',
+        'alert-danger': info.title === 'Angular',
+        'alert-warning': info.title === 'Vue.js',
+        'alert-success': info.title === 'Node.js',
+        'alert-secondary': info.title === 'Django'
+    }">
+        <p #para class="mb-0 d-inline-block">
+            {{ info.info | truncate }}
+        </p>
+        <a (click)="onShowHide($event, info)" href="javascript:;"> Show more...</a>
+    </div>
+</div>

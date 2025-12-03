@@ -1,0 +1,54 @@
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { TruncatePipe } from '../../pipes/truncate.pipe';
+import { Iframe } from '../../models/info.type';
+
+@Component({
+  selector: 'app-info',
+  templateUrl: './info.component.html',
+  styleUrls: ['./info.component.scss']
+})
+export class InfoComponent implements OnInit {
+
+  frameworksInfo: Iframe[] = [
+    {
+      title: "React",
+      info: "React is one of the most influential and widely used JavaScript libraries for building modern user interfaces, especially dynamic and highly interactive web applications. Created by Meta (formerly Facebook), React introduced the concept of a Virtual DOM, which enhances performance by updating only necessary UI components rather than re-rendering the entire DOM. The component-based structure in React allows developers to build reusable pieces of UI, making large applications easier to maintain, scale, and debug. JSX, a syntax extension used with React, enables writing HTML-like code directly inside JavaScript, improving readability and development efficiency. React’s ecosystem is vast and includes routing, state management, and styling solutions. Libraries like Redux, MobX, Zustand, and Recoil help manage complex application state, while tools like React Router enable seamless navigation in single-page applications. React also supports server-side rendering and static site generation via Next.js, which enhances SEO and performance for production-grade applications. Additionally, React Native extends the library’s capabilities beyond the web, enabling developers to build mobile applications for iOS and Android using the same concepts and component architecture. React’s flexibility makes it suitable for everything from small personal projects to enterprise-scale platforms used by companies like Netflix, Uber, and Shopify. With strong community contributions, frequent updates, TypeScript support, and extensive documentation, React continues to evolve, focusing on developer experience and future-ready features such as concurrent rendering and Server Components. Its simplicity, modularity, and ecosystem make it a top choice in frontend development."
+    },
+    {
+      title: "Angular",
+      info: "Angular is a comprehensive, full-fledged frontend framework developed and maintained by Google. It is designed for building large-scale, enterprise-grade applications with a structured development approach using TypeScript. Unlike libraries that only handle UI rendering, Angular provides an entire ecosystem out of the box, including routing, dependency injection, state handling, form validation, REST communication, and animation support. Angular applications are built using modules, components, and services, following clear separation of concerns and reusable architecture. The Angular CLI plays a key role in generating boilerplate code, optimizing builds, managing testing, and streamlining development workflows. Angular provides two-way data binding, making UI updates automatic when the underlying model changes, reducing manual synchronization and boilerplate code. It also integrates RxJS for handling asynchronous operations using observable streams, offering powerful patterns for managing real-time data, events, and APIs. Angular Material provides ready-to-use UI components that follow Google’s Material Design guidelines, improving UI consistency and speeding up development. Angular’s Ahead-of-Time compilation improves application performance by compiling templates during build time rather than runtime. Many large companies, including Microsoft, Deutsche Bank, Samsung, and Siemens rely on Angular because of its reliability, long-term support, and enterprise-focused architecture. Though Angular has a steeper learning curve compared to frameworks like Vue or React, its built-in structure and opinionated design make it ideal for teams building long-term scalable applications with consistent patterns. With ongoing enhancements, improved rendering engines, standalone components, and support for micro-frontends, Angular remains a leading framework in modern frontend development."
+    },
+    {
+      title: "Vue.js",
+      info: "Vue.js is a flexible, progressive JavaScript framework designed for building fast and interactive user interfaces. Created by Evan You, Vue takes inspiration from both React and Angular while keeping simplicity and developer experience as top priorities. One of Vue’s strongest advantages is its smooth learning curve—developers can integrate Vue into an existing project with just a script tag or build a full production application using its single-file components architecture. Vue’s reactivity system ensures UI updates automatically reflect changes in underlying data, making state changes intuitive and predictable. Vue uses an HTML-based template syntax, which allows developers to write markup cleanly while binding dynamic data and logic using special directives. For state management, Vuex was traditionally used, though modern Vue applications increasingly use Pinia due to its simplicity, modularity, and TypeScript support. Vue Router supports declarative and dynamic routing, enabling developers to build scalable single-page applications. Styling and UI development are supported through frameworks like Vuetify, Quasar, and Element Plus. For larger production applications, Nuxt.js extends Vue with server-side rendering, static site generation, API handling, and deployment optimization features. Vue’s ecosystem emphasizes flexibility, making it suitable for small prototypes, dashboards, SaaS systems, enterprise applications, and even mobile development through solutions like Quasar or NativeScript. Many well-known platforms including GitLab, Xiaomi, and Alibaba rely on Vue for its efficiency, performance, and stability. Vue is heavily praised for its excellent documentation, approachable syntax, clean architecture, and strong community support. As the framework evolves, Vue 3 enhances performance, adds composition API, and improves TypeScript alignment, making it a powerful and future-proof choice for modern frontend development."
+    },
+    {
+      title: "Node.js",
+      info: "Node.js is a powerful backend JavaScript runtime environment built on Google Chrome’s V8 engine that enables developers to run JavaScript outside the browser. It transformed web development by making JavaScript a full-stack language, allowing developers to use the same syntax for both frontend and backend. Node.js operates on a non-blocking, event-driven architecture, making it highly efficient for handling real-time applications, streaming services, and high-concurrency workloads like chat systems or live dashboards. One of Node.js’s greatest strengths is npm, the Node Package Manager, which provides access to millions of open-source libraries and tools that accelerate development. While Node.js itself is not a framework, many backend frameworks are built on top of it, with Express.js being the most widely adopted. Node.js applications run asynchronously, leveraging callbacks, promises, and async/await syntax to handle operations such as file handling, networking, and database communication without blocking execution. This approach significantly improves performance and scalability, especially in distributed and microservices-based architectures. Node.js integrates well with modern databases like MongoDB, PostgreSQL, Redis, and MySQL, and is widely used in building REST APIs, GraphQL APIs, and event-driven services. It is also foundational for frameworks like NestJS, Fastify, and Sails.js, which provide advanced architectural patterns for enterprise applications. Companies such as Netflix, PayPal, Uber, LinkedIn, and Walmart use Node.js because of its performance, scalability, and ability to streamline development workflows with JavaScript-based full-stack stacks like MERN or MEAN. As cloud computing, serverless functions, and real-time applications continue to grow, Node.js remains a cornerstone of modern backend development and continues to evolve with improvements in performance, security, and ecosystem tooling."
+    },
+    {
+      title: "Django",
+      info: "Django is a powerful and fully featured backend web framework built using Python, designed to encourage clean, maintainable, and scalable development practices. It follows the Model-View-Template (MVT) architecture and provides an “everything included” approach, offering built-in routing, ORM, authentication system, middlewares, admin interface, form handling, and security features. Django’s ORM simplifies database interactions, allowing developers to interact with data using Python classes rather than writing raw SQL queries. The framework places strong emphasis on security by default, offering protection against SQL injection, CSRF, XSS attacks, and clickjacking. One of Django’s standout features is its auto-generated admin panel, which accelerates development by providing a ready-to-use dashboard for managing application data without writing additional backend code. Django is highly suitable for content-heavy platforms, APIs, e-commerce systems, CRMs, educational platforms, and large-scale enterprise-grade systems. It integrates seamlessly with SQL databases such as PostgreSQL, MySQL, and SQLite, and supports caching and optimization using Redis and Memcached. Django applications can easily incorporate Django REST Framework (DRF) to build RESTful or GraphQL APIs for modern frontend frameworks like React, Angular, or Vue. The framework promotes reusable components through its app structure, making projects modular and maintainable as they scale. Companies including Instagram, Pinterest, Coursera, Spotify, and National Geographic use Django due to its reliability, strong community support, stable release cycle, and mature ecosystem. Django’s philosophy of “don’t repeat yourself” (DRY) aligns with clean engineering principles and supports rapid development without compromising stability or performance. With continuous improvements, async support, and container-friendly development workflows, Django remains a top backend framework for developers building secure, scalable, high-performance web applications."
+    }
+  ];
+
+  flag: boolean = false;
+
+  onShowHide(eve: Event, obj: Iframe) {
+    if(!this.flag){
+      ((eve.target as HTMLElement).previousSibling as HTMLElement).innerHTML = obj.info;
+      (eve.target as HTMLElement).innerHTML = ` Show less...`;
+      this.flag = true;
+    }else{
+      ((eve.target as HTMLElement).previousSibling as HTMLElement).innerHTML = this._truncatePipe.transform(obj.info);
+      (eve.target as HTMLElement).innerHTML = ` Show more...`;
+      this.flag = false;   
+    }
+  }
+
+  constructor( private _truncatePipe: TruncatePipe) { }
+
+  ngOnInit(): void {
+  }
+
+}
