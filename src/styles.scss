@@ -27,3 +27,10 @@ body {
         box-shadow: 0 0 0 .2rem rgba(255, 0, 0, .25);
     }
 }
+
+.ng-touched.ng-valid, .ng-dirty.ng-valid {
+    border-color: rgb(40, 167, 69);
+    &:focus {
+        box-shadow: 0 0 0 .2rem rgba(40, 167, 69, .25);
+    }
+}
