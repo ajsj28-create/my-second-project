@@ -1,0 +1,54 @@
+<div class="card">
+    <div class="card-body">
+        <h2>Sign Up</h2>
+        <form #signUpform="ngForm">
+            <div class="form-group">
+                <label for="userName">Username*</label>
+                <input 
+                required
+                minlength="6"
+                maxlength="12"
+                pattern="[a-zA-Z]+"
+                ngModel
+                name="userName"
+                #userControl="ngModel"
+                type="text" class="form-control" id="userName">
+                <label 
+                *ngIf="userControl.touched && userControl.hasError('required')"
+                for="" class="px-2 mb-0 text-danger msg d-block">This is a required field</label>
+                <ng-container *ngIf="userControl.dirty">
+                    <label
+                    *ngIf="userControl.hasError('minlength')"
+                    for="" class="px-2 mb-0 text-danger msg d-block">Minimum {{ (userControl.errors?.['minlength'].requiredLength) - (userControl.errors?.['minlength'].actualLength) }} more characters required</label>
+                    <label 
+                    *ngIf="userControl.hasError('pattern')"
+                    for="" class="px-2 mb-0 text-danger msg d-block">Only alphabates are allowed</label>                    
+                </ng-container>
+                <label 
+                *ngIf="userControl.value?.length == 12"
+                for="" class="px-2 mb-0 text-info msg d-block">Maximum username length is reached</label>
+            </div>
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input
+                required
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                ngModel
+                name="email"
+                #emailControl="ngModel"
+                type="text" class="form-control" id="email">
+                <label 
+                *ngIf="emailControl.touched && emailControl.hasError('required')"
+                for="" class="px-2 mb-0 text-danger msg d-block">This is a required field</label>
+                <label 
+                *ngIf="emailControl.dirty && emailControl.hasError('pattern')"
+                for="" class="px-2 mb-0 text-danger msg d-block">Invalid email</label>
+            </div>
+            <div class="text-right">
+                <button 
+                (click)="onSignUp()"
+                mat-raised-button color="primary">Sign Up</button>
+            </div>
+        </form>        
+    </div>
+</div>
