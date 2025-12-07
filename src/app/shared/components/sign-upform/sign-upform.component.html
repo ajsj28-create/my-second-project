@@ -4,7 +4,9 @@
         <form #signUpform="ngForm">
             <div class="form-group">
                 <label for="userName">Username*</label>
-                <input 
+                <input
+                (focus)="isFocused = true"
+                (blur)="isFocused = false"  
                 required
                 minlength="6"
                 maxlength="12"
@@ -25,7 +27,7 @@
                     for="" class="px-2 mb-0 text-danger msg d-block">Only alphabates are allowed</label>                    
                 </ng-container>
                 <label 
-                *ngIf="userControl.value?.length == 12"
+                *ngIf="userControl.value?.length == 12 && isFocused"
                 for="" class="px-2 mb-0 text-info msg d-block">Maximum username length is reached</label>
             </div>
             <div class="form-group">

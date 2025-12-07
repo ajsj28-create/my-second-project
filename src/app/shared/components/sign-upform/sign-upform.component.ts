@@ -8,6 +8,8 @@ import { NgForm } from '@angular/forms';
 })
 export class SignUpformComponent implements OnInit {
 
+  isFocused: boolean = false;
+
   @ViewChild('signUpform') form!: NgForm;
 
   constructor() {}
